@@ -37,9 +37,6 @@ Since the project is static, no package installation is required.
     ```bash
     # Using Node.js
     node server.js
-
-    # Or using Python
-    python -m http.server 3000
     ```
 
 3.  Open `http://localhost:3000` in your browser.
@@ -50,12 +47,6 @@ Since the project is static, no package installation is required.
 docker build -t divan .
 docker run -p 3000:3000 divan
 ```
-
-## ☁️ Deployment
-
-The project is optimized for Cloudflare Pages:
-
-- Simply "Direct Upload" the following files/folders to Cloudflare Pages: `index.html`, `css/`, `js/`, `data/`, `LICENSE`, and `README.md`.
 
 ## License
 
