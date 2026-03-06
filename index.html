@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Divanü Lügati't-Türk — Kâşgarlı Mahmud Sözlüğü</title>
+  <meta name="description" content="Kâşgarlı Mahmud'un Divanü Lügati't-Türk eserindeki 7.000'den fazla XI. yüzyıl Türkçe sözcüğünü arayın.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>𐰴</text></svg>">
+
+  <!-- Fontlar: Space Grotesk (başlık) + Inter (gövde) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Leaflet.js (harita) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+<body>
+
+  <div class="bg" aria-hidden="true"></div>
+
+  <div class="wrap">
+
+    <!-- ─── Başlık ───────────────────────────────────────── -->
+    <header>
+      <div class="header-left">
+        <div class="ey">Karahanlılar · XI. Yüzyıl · Kâşgar</div>
+        <h1>Divanü <em>Lügati't-Türk</em></h1>
+        <p class="by">Kâşgarlı Mahmud &mdash; 1072&ndash;1074</p>
+      </div>
+      <div class="header-right">
+        <span class="badge" id="badge">Yükleniyor…</span>
+      </div>
+    </header>
+
+    <!-- ─── Arama ─────────────────────────────────────────── -->
+    <div class="sw">
+      <div class="si">
+        <label for="q" class="sr-only">Sözcük ara</label>
+        <input
+          id="q"
+          type="search"
+          placeholder="Sözcük ara…"
+          autocomplete="off"
+          spellcheck="false"
+          aria-label="Sözcük ara"
+        >
+        <button class="clr" id="cb" aria-label="Temizle">&#x2715;</button>
+      </div>
+      <p class="hint">
+        <code>-mak</code> ile biten &nbsp;·&nbsp;
+        <code>aç-</code> ile başlayan &nbsp;·&nbsp;
+        <code>at</code> içinde geçen
+      </p>
+    </div>
+
+    <!-- ─── İçerik ────────────────────────────────────────── -->
+    <div class="lay">
+
+      <aside aria-label="Sözcük listesi">
+        <div class="lp">
+          <div class="lh">
+            <span style="opacity:.7">Sözcükler</span>
+            <span id="rc" aria-live="polite"></span>
+          </div>
+          <ul id="wl" role="listbox" aria-label="Sözcükler"></ul>
+        </div>
+      </aside>
+
+      <section class="dp" id="dp" aria-label="Sözcük detayı" aria-live="polite">
+        <div class="de">
+          <span class="ic" aria-hidden="true">𐰴</span>
+          <span>Bir sözcük seçin</span>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ─── Türk Boyları Haritası ──────────────────────────── -->
+    <section class="map-section" aria-label="Türk boyları coğrafyası">
+
+      <div class="bio-header">
+        <div class="bio-rune" aria-hidden="true">𐰴𐰆𐰺</div>
+        <div>
+          <div class="ey">XI. Yüzyıl · Orta Asya</div>
+          <h2 class="bio-title">Türk Boylarının Coğrafyası</h2>
+        </div>
+      </div>
+
+      <div class="map-legend">
+        <span class="leg-item"><span class="leg-dot" style="background:#d4935a"></span>Kâşgar (doğum yeri)</span>
+        <span class="leg-item"><span class="leg-dot" style="background:#6a9dbe"></span>Bağdat (eserin yazıldığı yer)</span>
+        <span class="leg-item"><span class="leg-line" style="background:rgba(176,112,64,0.5)"></span>İpek Yolu</span>
+        <span class="leg-item" style="font-size:10px;color:var(--text-dim)">Boyların üzerine tıklayın</span>
+      </div>
+
+      <div id="boylar-map" role="application" aria-label="Türk boyları interaktif haritası"></div>
+
+    </section>
+
+    <!-- ─── Biyografi ────────────────────────────────────── -->
+    <section class="bio" aria-label="Kâşgarlı Mahmud hakkında">
+
+      <div class="bio-header">
+        <div class="bio-rune" aria-hidden="true">𐰚𐰲𐰴</div>
+        <div>
+          <div class="ey">Tarihî Bağlam</div>
+          <h2 class="bio-title">Kâşgarlı Mahmud</h2>
+        </div>
+        <button class="bio-listen" id="listenBtn" aria-label="Biyografiyi sesli dinle">
+          <span class="listen-icon">▶</span>
+          <span class="listen-label">Dinle</span>
+        </button>
+      </div>
+
+      <div class="bio-grid">
+
+        <!-- Sol: Veriler -->
+        <div class="bio-facts">
+          <div class="fact">
+            <span class="fact-key">Dönem</span>
+            <span class="fact-val">XI. Yüzyıl · Karahanlılar</span>
+          </div>
+          <div class="fact">
+            <span class="fact-key">Doğum Yeri</span>
+            <span class="fact-val">Kâşgar · Orta Asya</span>
+          </div>
+          <div class="fact">
+            <span class="fact-key">Eser Yazıldı</span>
+            <span class="fact-val">1072 – 1074 · Bağdat</span>
+          </div>
+          <div class="fact">
+            <span class="fact-key">Dil</span>
+            <span class="fact-val">Arapça açıklamalı Türkçe sözlük</span>
+          </div>
+          <div class="fact">
+            <span class="fact-key">Kelime Sayısı</span>
+            <span class="fact-val">~7.500 madde başı</span>
+          </div>
+          <div class="fact">
+            <span class="fact-key">Özgün Nüsha</span>
+            <span class="fact-val">İstanbul, Millet Kütüphanesi</span>
+          </div>
+        </div>
+
+        <!-- Sağ: Metin -->
+        <div class="bio-text" id="bioText">
+          <p>
+            Kâşgarlı Mahmud, Karahanlı Devleti'nin hâkim olduğu XI. yüzyılda Kâşgar'da dünyaya geldi.
+            Türk dilbiliminin kurucu ismi sayılan Mahmud, döneminin en kapsamlı Türkçe–Arapça sözlüğünü
+            hazırlamak amacıyla Bağdat'a gitti ve burada <em>Divanü Lügati't-Türk</em>'ü kaleme aldı.
+          </p>
+          <p>
+            Eser yalnızca bir sözlük değildir; dönemin Türk boylarının ağız farklılıklarını, şiirlerini,
+            atasözlerini, coğrafyasını ve sosyal yaşamını belgeleyen tek kapsamlı kaynaktır. Mahmud,
+            Oğuz, Kıpçak, Uygur, Çiğil ve daha onlarca boyun söz varlığını elden geçirerek
+            Türkçenin Arapça kadar zengin ve işlenmiş bir dil olduğunu kanıtlamayı amaçladı.
+          </p>
+          <p>
+            Eserin bilinen tek el yazması nüshası 1266 yılında Şam'da istinsah edilmiştir.
+            Ali Emirî Efendi, nüshayı İstanbul'da bir sahaftan bularak kurtarmış; bugün
+            Millet Kütüphanesi'nde saklanmaktadır. Besim Atalay'ın Türkçe çevirisi
+            sayesinde eser bugün geniş kitlelere ulaşmaktadır.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <footer>
+      Divanü Lügati't-Türk Dizini &mdash; Besim Atalay çevirisi &nbsp;·&nbsp; Türk Dil Kurumu
+    </footer>
+
+  </div>
+
+  <style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}</style>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/map.js"></script>
+
+</body>
+</html>
