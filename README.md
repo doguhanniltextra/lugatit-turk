@@ -4,7 +4,7 @@ This project is an open-source web application that digitizes, cleans, and prese
 
 ## Live Preview
 
-[website](https://lugatit-turk.doguhangithub.workers.dev/)
+[Website](https://lugatit-turk.doguhangithub.workers.dev/)
 
 ##  Technical Features
 
