@@ -4,9 +4,9 @@ This project is an open-source web application that digitizes, cleans, and prese
 
 ## Live Preview
 
-[lugatit-turk.doguhangithub.workers.dev](https://lugatit-turk.doguhangithub.workers.dev/)
+[website](https://lugatit-turk.doguhangithub.workers.dev/)
 
-## 🛠 Technical Features
+##  Technical Features
 
 - **Dataset:** 7,200+ structured entries (based on Besim Atalay's translation).
 - **Interface ("Steppe Modern"):** Pure HTML5 and Vanilla CSS3. No heavy frameworks used.
