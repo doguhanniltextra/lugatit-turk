@@ -1,3 +1,9 @@
+> **Disclaimer:** This is an independent hobby project created for personal
+> learning and exploration. The dataset is based on Besim Atalay's Turkish
+> translation and may contain OCR artifacts or transcription errors.
+> This project is not affiliated with any academic institution and should
+> not be used as a primary scholarly reference.
+
 # Divanü Lügati't-Türk: Digital Dictionary & Interactive Map
 
 This project is an open-source web application that digitizes, cleans, and presents the monumental 11th-century work of Mahmud al-Kashgari, **Divanü Lügati't-Türk**, through a modern and interactive interface.
